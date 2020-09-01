@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux'
 import configureStore from './store/configureStore';
+import Navbar from './components/Navbar';
 
 const store = configureStore();
+
 if(process.env.NODE_ENV !== 'production') {
   window.store = store;
 }
@@ -28,9 +30,7 @@ function App() {
   return (
     <BrowserRouter>
       <Provider store={store}>
-        <Route path="/">
-          <h1>My Home Page</h1>
-        </Route>
+        <Navbar />
       </Provider>
     </BrowserRouter>
   );

@@ -17,7 +17,7 @@ export const login = (username, password) => {
                 "Content-Type": "application/json",
                 "XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
             },
-            body: JSON.stringify({username, password})
+            body: JSON.stringify({username, password}),
         });
         res.data = await res.json();
         if(res.ok) {
