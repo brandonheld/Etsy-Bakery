@@ -6,12 +6,12 @@ const setUser = user => {
     return {
         type: SET_USER,
         user
-    }
+    };
 };
 
 export const login = (username, password) => {
-    return dispatch => {
-        const res = fetch('/api/session', {
+    return async dispatch => {
+        const res = await fetch('/api/session', {
             method: "put",
             headers: {
                 "Content-Type": "application/json",
@@ -21,8 +21,19 @@ export const login = (username, password) => {
         });
         res.data = await res.json();
         if(res.ok) {
-            dispatch(setUser(res.data));
+            dispatch(setUser(res.data.user));
         }
         return res;
     };
 };
+
+window.login = login;
+
+export default function authReducer(state={}, action) {
+    switch (action.type) {
+        case SET_USER:
+            return action.user;
+        default:
+            return state;
+    }
+}
