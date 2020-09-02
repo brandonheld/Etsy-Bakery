@@ -1,1 +1,53 @@
-/* TODO Add site wide styles */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar__search {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 2rem;
+}
+.loginContainer {
+    position: relative;
+    border: 2px solid gold;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 25vw;
+    max-width: 475px;
+    min-width: 185px;
+    
+}
+.loginContainer__form {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid pink;
+    
+}
+.loginContainer__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1rem;
+}
+.loginContainer__formInput{
+    margin: .50rem 1rem .75rem;
+}
+.loginContainer__formLable {
+    margin-left: 1rem;
+}
+#signIn {
+    margin: 1rem;
+}
+/* .modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    background-color:  rgba(0 0 0 .7);
+    width: 100vw;
+    height: 100vh;
+} */
