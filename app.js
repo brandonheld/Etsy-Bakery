@@ -75,6 +75,8 @@ app.use(function(err, _req, res, _next) {
       error: { errors: err.errors },
     });
   } else {
+    console.log(`error message: `, err.message)
+    console.log(`error messageStack: `, err.stack)
     res.json({
       message: err.message,
       stack: err.stack,

@@ -10,12 +10,14 @@ const setUser = user => {
 };
 
 export const login = (username, password) => {
+
     return async dispatch => {
+        const csrfToken = Cookies.get("XSRF-TOKEN");
         const res = await fetch('/api/session', {
-            method: "put",
+            method: "PUT",
             headers: {
                 "Content-Type": "application/json",
-                "XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
+                "XSRF-TOKEN": csrfToken,
             },
             body: JSON.stringify({username, password}),
         });
@@ -27,7 +29,7 @@ export const login = (username, password) => {
     };
 };
 
-// window.login = login;
+window.login = login;
 
 export default function authReducer(state={}, action) {
     switch (action.type) {

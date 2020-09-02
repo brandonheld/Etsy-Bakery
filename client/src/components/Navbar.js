@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import Login from './Login'
 const cart = <FontAwesomeIcon icon={faShoppingCart} />
+const signIn = <Login />
 
  function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +27,7 @@ const cart = <FontAwesomeIcon icon={faShoppingCart} />
                         <button onClick={() => setIsOpen(!isOpen)}>Sign in</button>
                         {isOpen ?(
                             <div>
-                                <Login />
+                                {signIn}
                             </div>
                         ): null}    
                     </div>
