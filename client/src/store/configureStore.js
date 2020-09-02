@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import authReducer from './auth';
 
 const rootReducer = combineReducers({
-  authReducer,
+  auth: authReducer,
 });
 
 let storeEnhancer;
