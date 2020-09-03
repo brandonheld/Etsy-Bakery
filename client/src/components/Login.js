@@ -1,27 +1,23 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { login, logout } from '../store/auth';
+import { login } from '../store/auth';
+export const OPEN_SIGNUP = "OPEN_SIGNUP";
 
 function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     
     const dispatch = useDispatch();
-
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(login(username, password))
     };
-    const signOut = (e) => {
-        e.preventDefault();
-        dispatch(logout())
-    }
+
     return (
-        <div className='modal'>
             <div className='loginContainer'>
                 <div className='loginContainer__header'>
                     <p>Sign in</p>
-                    <button onClick={signOut}>Register</button>
+                    <button onClick={() => dispatch({ type: OPEN_SIGNUP })}>Register</button>
                 </div>
                 <form className='loginContainer__form' onSubmit={handleSubmit}>
                     <label className='loginContainer__formLable'>Email address</label>
@@ -41,7 +37,6 @@ function Login() {
                     <button id='signIn' type='submit'>Sign in</button> 
                 </form>  
             </div>
-        </div>
     );
 };
 

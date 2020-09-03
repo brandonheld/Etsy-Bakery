@@ -16,7 +16,7 @@ function SignUp() {
 
     return (
         <div className='loginContainer'>
-            <div className='loginContainer__header'>
+            <div className='loginContainer__headerSignUp'>
                 <h2>Create your account</h2>
                     <p>Registration is easy.</p>
             </div>
@@ -42,7 +42,7 @@ function SignUp() {
                         value={password} 
                         onChange={(e) => setPassword(e.target.value)} 
                     />
-                <button id='signIn' type='submit'>Sign in</button> 
+                <button id='signIn' type='submit'>Register</button> 
             </form>  
         </div>
     );

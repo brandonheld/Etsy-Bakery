@@ -1,16 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
-import Login from './Login'
-const cart = <FontAwesomeIcon icon={faShoppingCart} />
-const signIn = <Login />
+import { useDispatch } from 'react-redux';
 
- function Navbar() {
-    const [isOpen, setIsOpen] = useState(false);
+const cart = <FontAwesomeIcon icon={faShoppingCart} />
+export const OPEN_SIGNIN = "OPEN_SIGNIN";
+
+
+function Navbar() {
     const handleSubmit = (e) => {
         e.preventDefault();
     };
-
+    const dispatch = useDispatch()
     return (
         <>
             <div className='navbar'>
@@ -24,12 +25,7 @@ const signIn = <Login />
                     />
                     </form>
                     <div className='navbar__signIn'>
-                        <button onClick={() => setIsOpen(!isOpen)}>Sign in</button>
-                        {isOpen ?(
-                            <div>
-                                {signIn}
-                            </div>
-                        ): null}    
+                        <button onClick={() => dispatch({ type: OPEN_SIGNIN })}>Sign in</button>
                     </div>
                     <div className='navbar__cart'>
                         {cart}
