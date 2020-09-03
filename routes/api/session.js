@@ -14,6 +14,14 @@ const validateLogin = [
   check("password").exists(),
 ];
 
+const validateSignUp = [
+  check("username")
+    .isLength({ min: 1, max: 255 }),
+  check("email")
+    .exists()
+    .isEmail(),
+];
+
 router.get(
   "/",
   getCurrentUser,
@@ -29,8 +37,6 @@ router.put(
   validateLogin,
   handleValidationErrors,
   asyncHandler(async function (req, res, next) {
-    debugger
-    console.log('insession put')
     const user = await User.login(req.body);
     if (user) {
       const token = await generateToken(user);
@@ -46,5 +52,41 @@ router.put(
     return next(new Error('Invalid credentials'));
   })
 );
+
+
+router.post(
+  "/",
+  validateSignUp,
+  handleValidationErrors,
+  asyncHandler(async (req, res, next) => {
+    const { username, email, password } = req.body;
+
+    const user = await User.signup({
+      username,
+      email,
+      password,
+    });
+
+    const token = await generateToken(user);
+    res.cookie("token", token, {
+      maxAge: expiresIn * 1000, // maxAge in milliseconds
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+    });
+
+    return res.json({ 
+      user,
+     });
+  })
+);
+
+router.delete(
+  '/', 
+  asyncHandler(async function (req,res) {
+    res.clearCookie('token');
+    res.json({ 
+      message: 'success' 
+    });
+}));
 
 module.exports = router;

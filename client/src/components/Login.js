@@ -1,24 +1,27 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { login } from '../store/auth';
+import { login, logout } from '../store/auth';
 
 function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(login(username, password))
     };
-
+    const signOut = (e) => {
+        e.preventDefault();
+        dispatch(logout())
+    }
     return (
         <div className='modal'>
             <div className='loginContainer'>
                 <div className='loginContainer__header'>
                     <p>Sign in</p>
-                    <button>Register</button>
+                    <button onClick={signOut}>Register</button>
                 </div>
                 <form className='loginContainer__form' onSubmit={handleSubmit}>
                     <label className='loginContainer__formLable'>Email address</label>
