@@ -1,6 +1,5 @@
 import { OPEN_SIGNIN } from '../components/Navbar';
-import { OPEN_SIGNUP} from '../components/Login';
-
+import { OPEN_SIGNUP, CLOSE_MODAL} from '../components/Login';
 
 export default function uiReducer(state = {}, action) {
     switch (action.type) {
@@ -13,6 +12,11 @@ export default function uiReducer(state = {}, action) {
             return {
                 isOpenSignup: false,
                 isOpenSignin: true
+            }
+        case CLOSE_MODAL:
+            return {
+                isOpenSignup: false,
+                isOpenSignin: false
             }
         default:
             return state;

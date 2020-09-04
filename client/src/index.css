@@ -40,14 +40,6 @@
 #signIn {
     margin: 1rem;
 }
-/* .modal {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 10;
-    background-color:  rgba(0 0 0 .7);
-    width: 100vw;
-    height: 100vh;
-} */
+.modal {
+    border: 2px solid purple;
+}

@@ -8,14 +8,12 @@ import SignUp from './Signup'
 
 function DisplayModal() {
     const display = useSelector(state => state.ui)
+
     
-    const displaying = ((display.isOpenSignin) ? <Login /> : null 
-        || (display.isOpenSignup) ? <SignUp /> : null)
 
     return (
-        <div>
-            {displaying}
-        </div>
+        (display.isOpenSignin) ? <Login /> : null 
+        || (display.isOpenSignup) ? <SignUp /> : null
     )
 
 }

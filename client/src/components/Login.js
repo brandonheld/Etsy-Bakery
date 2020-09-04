@@ -1,20 +1,35 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 import { login } from '../store/auth';
 export const OPEN_SIGNUP = "OPEN_SIGNUP";
+export const CLOSE_MODAL = "CLOSE_MODAL"
 
 function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    
     const dispatch = useDispatch();
+    const form = useRef()
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(login(username, password))
     };
+    const outside = (e) => {
+        if (form.current.contains(e.target)) {
+            return;
+          }
+        dispatch({ type: CLOSE_MODAL })
+    }
+
+    useEffect(() => {
+        document.addEventListener("click", outside); 
+        return () => {
+          document.removeEventListener("click", outside);
+        };
+      }, []);
 
     return (
-            <div className='loginContainer'>
+        <div className='background' onClick={outside}>
+            <div className='loginContainer' ref={form}>
                 <div className='loginContainer__header'>
                     <p>Sign in</p>
                     <button onClick={() => dispatch({ type: OPEN_SIGNUP })}>Register</button>
@@ -37,6 +52,7 @@ function Login() {
                     <button id='signIn' type='submit'>Sign in</button> 
                 </form>  
             </div>
+        </div>
     );
 };
 
