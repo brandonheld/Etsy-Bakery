@@ -1,4 +1,4 @@
-import { OPEN_SIGNIN } from '../components/Navbar';
+import { OPEN_SIGNIN } from '../components/SignIn';
 import { OPEN_SIGNUP, CLOSE_MODAL} from '../components/Login';
 
 export default function uiReducer(state = {}, action) {

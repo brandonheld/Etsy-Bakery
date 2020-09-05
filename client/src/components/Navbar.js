@@ -1,22 +1,20 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
-import { useDispatch } from 'react-redux';
+import { NavLink } from "react-router-dom";
 
 const cart = <FontAwesomeIcon icon={faShoppingCart} />
-export const OPEN_SIGNIN = "OPEN_SIGNIN";
-
 
 function Navbar() {
     const handleSubmit = (e) => {
         e.preventDefault();
     };
-    const dispatch = useDispatch()
+    
     return (
-        <>
-            <div className='navbar'>
-                <div className="navbar__search">
-                    <h1 id='home'>Evolved-Etsy</h1>
+        <div className='navbar'>
+            <div className="navbar__search">
+                <h1 id='home'>Etsy-Bakery</h1>
+                <div className='navbar__searchBox'>
                     <form onSubmit={handleSubmit}>
                     <input id='searchBar'
                         type="text" 
@@ -24,15 +22,26 @@ function Navbar() {
                         placeholder="Search for anything"
                     />
                     </form>
-                    <div className='navbar__signIn'>
-                        <button onClick={() => dispatch({ type: OPEN_SIGNIN })}>Sign in</button>
-                    </div>
-                    <div className='navbar__cart'>
-                        {cart}
-                    </div>
+                </div>
+                <div>
+                    <Account />
+                </div>
+                <div className='navbar__cartButton'>
+                    {cart}
                 </div>
             </div>
-        </>
+            <div className='navbar__categories'>
+                <NavLink to='#' className='navlink'>Featured</NavLink>
+                <NavLink to='#' className='navlink'>Brownies</NavLink>
+                <NavLink to='#' className='navlink'>Cakes</NavLink> 
+                <NavLink to='#' className='navlink'>Candy</NavLink>  
+                <NavLink to='#' className='navlink'>Chessecake</NavLink>  
+                <NavLink to='#' className='navlink'>Cookies</NavLink>
+                <NavLink to='#' className='navlink'>Cupcakes</NavLink>
+                <NavLink to='#' className='navlink'>Pastries</NavLink>  
+                <NavLink to='#' className='navlink'>Pies</NavLink>    
+            </div>
+        </div>
     )
 }
 export default Navbar;

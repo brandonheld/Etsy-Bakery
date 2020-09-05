@@ -19,7 +19,10 @@ function Login() {
           }
         dispatch({ type: CLOSE_MODAL })
     }
-
+    const demo = e => {
+        e.preventDefault();
+        dispatch(login('demo@example.com', 'password'))
+    }
     useEffect(() => {
         document.addEventListener("click", outside); 
         return () => {
@@ -31,8 +34,9 @@ function Login() {
         <div className='background' onClick={outside}>
             <div className='loginContainer' ref={form}>
                 <div className='loginContainer__header'>
-                    <p>Sign in</p>
-                    <button onClick={() => dispatch({ type: OPEN_SIGNUP })}>Register</button>
+                    <h1>Sign in</h1>
+                    <button id='registerButton' onClick={demo}>Demo</button>
+                    <button id='registerButton' onClick={() => dispatch({ type: OPEN_SIGNUP })}>Register</button>
                 </div>
                 <form className='loginContainer__form' onSubmit={handleSubmit}>
                     <label className='loginContainer__formLable'>Email address</label>
