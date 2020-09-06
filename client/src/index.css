@@ -22,23 +22,25 @@ body{
     min-width: 171px;
     color: #76d3fe;
     cursor: pointer;
+    margin-right: 5px;
 }
 .navbar__cartButton {
-    margin-right: 5px;
+    margin: 0 5px;
     cursor: pointer;
 }
 .navbar__searchBox {
     width: 100%;
     max-width: 995px;
 }
-#signInButton {
+#signInButton, #signOutButton {
     border-radius: 25px;
     border-style: none;
     padding: 10px 14px;
     background: none;
     cursor: pointer;
+    font-size: 16px;
 }
-#signInButton:hover {
+#signInButton:hover, #signOutButton:hover {
     background-color: plum;
 }
 button:focus {
@@ -52,6 +54,7 @@ button:focus {
     border:1px solid #e2dfac;
     padding: 10px;
     background: none;
+    margin-left: 5px;
     
 }
 #searchBar:hover {

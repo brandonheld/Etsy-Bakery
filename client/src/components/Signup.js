@@ -12,6 +12,7 @@ function SignUp() {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(signUp(username, password, email))
+        dispatch({ type: CLOSE_MODAL })
     };
     const outside = (e) => {
         if (form.current.contains(e.target)) {

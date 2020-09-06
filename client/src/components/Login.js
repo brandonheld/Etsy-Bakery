@@ -12,6 +12,7 @@ function Login() {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(login(username, password))
+        dispatch({ type: CLOSE_MODAL })
     };
     const outside = (e) => {
         if (form.current.contains(e.target)) {
@@ -22,6 +23,7 @@ function Login() {
     const demo = e => {
         e.preventDefault();
         dispatch(login('demo@example.com', 'password'))
+        dispatch({ type: CLOSE_MODAL })
     }
     useEffect(() => {
         document.addEventListener("click", outside); 
