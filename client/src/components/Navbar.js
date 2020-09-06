@@ -14,7 +14,7 @@ function Navbar() {
     return (
         <div className='navbar'>
             <div className="navbar__search">
-                <h1 id='home'>Etsy-Bakery</h1>
+                <h1 id='homeButton'>Etsy-Bakery</h1>
                 <div className='navbar__searchBox'>
                     <form onSubmit={handleSubmit}>
                     <input id='searchBar'

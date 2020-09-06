@@ -9,28 +9,33 @@ function Login() {
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
     const form = useRef()
+    
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(login(username, password))
-        dispatch({ type: CLOSE_MODAL })
+        close()
     };
     const outside = (e) => {
         if (form.current.contains(e.target)) {
             return;
           }
         dispatch({ type: CLOSE_MODAL })
-    }
+    };
     const demo = e => {
         e.preventDefault();
         dispatch(login('demo@example.com', 'password'))
         dispatch({ type: CLOSE_MODAL })
+    };
+    const close = () => {
+        if((username && password) !== '') dispatch({ type: CLOSE_MODAL })
     }
+
     useEffect(() => {
         document.addEventListener("click", outside); 
         return () => {
           document.removeEventListener("click", outside);
         };
-      }, []);
+    });
 
     return (
         <div className='background' onClick={outside}>
@@ -45,14 +50,18 @@ function Login() {
                         <input className='loginContainer__formInput'
                             type="text" 
                             name="username" 
-                            value={username} 
+                            value={username}
+                            required='true'
+                            autocomplete="off" 
                             onChange={(e) => setUsername(e.target.value)} 
                         />
                     <label className='loginContainer__formLable'>Password</label>
                         <input className='loginContainer__formInput'
                             type='password' 
                             name='password' 
-                            value={password} 
+                            value={password}
+                            required='true'
+                            autocomplete="off"
                             onChange={(e) => setPassword(e.target.value)} 
                         />
                     <button id='signIn' type='submit'>Sign in</button> 

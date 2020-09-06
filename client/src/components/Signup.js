@@ -26,35 +26,41 @@ function SignUp() {
         return () => {
           document.removeEventListener("click", outside);
         };
-    }, []);
+    });
 
     return (
         <div className='background' onClick={outside}>
             <div className='loginContainer' ref={form}>
                 <div className='loginContainer__headerSignUp'>
                     <h2>Create your account</h2>
-                        <p>Registration is easy.</p>
+                        <p id='signUpComment'>Registration is easy.</p>
                 </div>
                 <form className='loginContainer__form' onSubmit={handleSubmit}>
                     <label className='loginContainer__formLable'>Email address</label>
                         <input className='loginContainer__formInput'
                             type="email" 
                             name="email" 
-                            value={email} 
+                            value={email}
+                            required='true'
+                            autocomplete="off" 
                             onChange={(e) => setEmail(e.target.value)} 
                         />
                     <label className='loginContainer__formLable'>First name</label>
                         <input className='loginContainer__formInput'
                             type="text" 
                             name="username" 
-                            value={username} 
+                            value={username}
+                            required='true'
+                            autocomplete="off" 
                             onChange={(e) => setUsername(e.target.value)} 
                         />
                     <label className='loginContainer__formLable'>Password</label>
                         <input className='loginContainer__formInput'
                             type='password' 
                             name='password' 
-                            value={password} 
+                            value={password}
+                            required='true'
+                            autocomplete="off" 
                             onChange={(e) => setPassword(e.target.value)} 
                         />
                     <button id='signIn' type='submit'>Register</button> 

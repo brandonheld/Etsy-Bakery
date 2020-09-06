@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import configureStore from './store/configureStore';
 import Navbar from './components/Navbar';
 import DisplayModal from './components/Modal'
-
+import Home from './components/Home'
 const store = configureStore();
 
 if(process.env.NODE_ENV !== 'production') {
@@ -32,6 +32,7 @@ function App() {
       <Provider store={store}>
         <Navbar />
         <DisplayModal />
+        <Home />
       </Provider>
     </BrowserRouter>
   );
