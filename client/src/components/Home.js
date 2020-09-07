@@ -60,7 +60,7 @@ function Home() {
             </div>
             <div className='body'>
                 <div className='body__grid'>
-                    <div className='body_gridItem body_gridItem1'>
+                    <div className='body_gridItem body__gridItem1'>
                         <p>Editors' Picks</p>
                         <h2>A Beautiful Mess x Etsy-Bakery</h2>
                     </div>
