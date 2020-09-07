@@ -87,6 +87,11 @@ function Home() {
                     
                 </div>
             </div>
+            <div id='footerBackground'>
+                <div id='box'></div>
+                <div id='box'></div>
+                <div id='box'></div>
+            </div>
         </>
     )
 }
