@@ -4,6 +4,7 @@
 }
 body{
     background-color: #FFFDD0;
+    color: #af2d5f;
 }
 input {
     padding: 5px;
@@ -16,10 +17,10 @@ input:focus {
     justify-content: space-between;
     margin: 10px auto 0;
     align-items: center;
-    max-width: 1340px;
+    max-width: 1342px;
     padding: 0 10px
 }
-.navbar__signInBox {
+.navbar__signInBox, #signOutButton {
     margin: 0 10px;
 }  
 .navbar__categories {
@@ -48,7 +49,8 @@ input:focus {
     background: none;
     cursor: pointer;
     font-size: 16px;
-    min-width: 78px;
+    min-width: 88px;
+    color: #ec4988;
 }
 #signInButton:hover, #signOutButton:hover {
     background-color: #af2d5f;
@@ -149,10 +151,9 @@ button:focus {
     flex-direction: column;
     margin: 10px auto 0;
     align-items: center;
-    max-width: 1340px;
+    max-width: 1342px;
     padding-top: 25px;
     padding-bottom: 10px;
-    color: #af2d5f;
 }
 #headerBackground {
     background-color: #76d3fe;
@@ -160,6 +161,7 @@ button:focus {
 .header__title {
     font-size: 30px;
     margin-bottom: 10px;
+    text-align: center;
 }
 #headerFeatured {
     font-size: 18px;
@@ -186,6 +188,53 @@ button:focus {
 .header__imgContainer:hover {
     letter-spacing: .25rem;
 }
-
-
-/* 945px change sizes */
+.bodyHeader {
+    display: flex;
+    max-width: 1342px;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+.bodyHeader__item {
+    max-width: 328px;
+    min-width: 145px;
+    text-align: center;
+    margin-top: 45px;
+    font-size: 18px;
+    padding: 5px;
+}
+.bodyHeader__comment {
+    padding-top: 10px;
+}
+.body {
+    display: flex;
+    flex-direction: row;
+    max-width: 1342px;
+    margin: 50px auto;
+}
+.body__grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) 2fr;
+    grid-template-rows: 1fr 1fr .5fr;
+    grid-gap: 15px;
+    
+}
+.body__gridImg {
+    max-width: 100%;
+    border-radius: 5px;
+}
+.body_gridItem1 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.body__gridSidebar {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+.body__gridItem4 {
+    height: 100%;
+    grid-row: span 3;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
